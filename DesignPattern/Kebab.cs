@@ -36,7 +36,7 @@ namespace DesignPattern
         {
             foreach(Ingredient ingredient in Ingredients)
             {
-                if (ingredient.Name.Equals("oignon")) this.Ingredients.Remove(ingredient);
+                if (ingredient.GetType() == typeof(OignonIngredient)) this.Ingredients.Remove(ingredient);
             }
             return this;
         }
@@ -45,7 +45,7 @@ namespace DesignPattern
         {
             foreach (Ingredient ingredient in Ingredients)
             {
-                if (ingredient.Name.Equals("fromage")) this.Ingredients.Add(ingredient);
+                if (ingredient.GetType() == typeof(CheeseIngredient)) this.Ingredients.Add(ingredient);
             }
             return this;
         }
