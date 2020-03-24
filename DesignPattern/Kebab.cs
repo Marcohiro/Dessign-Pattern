@@ -14,7 +14,7 @@ namespace DesignPattern
             this.Sauce = sauce;
         }
 
-        bool isVegetarian()
+        bool IsVegetarian()
         {
             foreach(Ingredient ingredient in Ingredients)
             {
@@ -23,13 +23,31 @@ namespace DesignPattern
             return true;
         }
 
-        bool isPescetarian()
+        bool IsPescetarian()
         {
             foreach (Ingredient ingredient in Ingredients)
             {
                 if (ingredient.GetType() != typeof(VegeterianIngredient) || ingredient.GetType() != typeof(PesceterianIngredient)) return false;
             }
             return true;
+        }
+
+        public Kebab SansOignon()
+        {
+            foreach(Ingredient ingredient in Ingredients)
+            {
+                if (ingredient.Name.Equals("oignon")) this.Ingredients.Remove(ingredient);
+            }
+            return this;
+        }
+
+        public Kebab SupplementFromage()
+        {
+            foreach (Ingredient ingredient in Ingredients)
+            {
+                if (ingredient.Name.Equals("fromage")) this.Ingredients.Add(ingredient);
+            }
+            return this;
         }
     }
 }
