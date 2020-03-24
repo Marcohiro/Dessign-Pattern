@@ -6,10 +6,12 @@ namespace DesignPattern
     {
 
         public List<Ingredient> Ingredients { get; }
+        public Sauce Sauce { get; }
 
-        public Kebab(List<Ingredient> ingredients)
+        public Kebab(List<Ingredient> ingredients, Sauce sauce)
         {
             this.Ingredients = ingredients;
+            this.Sauce = sauce;
         }
 
         bool isVegetarian()
